@@ -1,0 +1,20 @@
+[project]
+name = "meeting-notes"
+version = "0.2.4"
+description = "Evidence-backed meeting notes with human review"
+requires-python = ">=3.12"
+dependencies = [
+  "streamlit>=1.40,<2",
+  "pydantic>=2.10,<3",
+  "httpx>=0.27,<1",
+  "python-dotenv>=1,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+audio = ["faster-whisper==1.2.1", "av==18.1.0", "ctranslate2==4.8.2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+filterwarnings = ["error::DeprecationWarning:minutes.*"]
